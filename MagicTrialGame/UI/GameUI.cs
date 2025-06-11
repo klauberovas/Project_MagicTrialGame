@@ -12,7 +12,6 @@ namespace MagicTrialGame.UI
         {
             Console.Clear();
 
-            // Hlavička s barvou fialovou a zvýrazněním
             Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine("             ★ ✦ ◆ ✦ ★");
             Console.WriteLine("╔══════════════════════════════════════╗");
@@ -22,7 +21,6 @@ namespace MagicTrialGame.UI
             Console.ResetColor();
             Console.WriteLine();
 
-            // Text s barevným zvýrazněním klíčových slov
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine("📜 Po letech studia magie nadešel Tvůj den zkoušky Mistra.");
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -31,21 +29,33 @@ namespace MagicTrialGame.UI
             Console.WriteLine("Čeká Tě 5 komnat s náročnými hádankami. S každou správnou odpověďí");
             Console.WriteLine("získáš kouzlo a artefakt, které Ti pomohou v závěrečném souboji.");
             Console.WriteLine();
+
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine("👤 V poslední komnatě tě čeká Stín - padlý učedník.");
             Console.WriteLine("⚔️  Porazíš ho? Nebo ho dokážeš zachránit?");
             Console.WriteLine();
 
-            // Výzva k akci s barvou cyan a šedou
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.Write("Vstoupit do knihovny? ");
+
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine("[Enter]");
             Console.ResetColor();
 
             Console.ReadLine();
         }
-        public static void DisplayRoomDescription(Room room) { }
+        public static void DisplayRoom(Room room)
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine($"==== MÍSTNOST {room.Number}: {room.Name.ToUpper()} ====");
+            Console.ResetColor();
+            Console.WriteLine();
+        }
+        public static void DisplayRiddle()
+        {
+            
+        }
         public static string GetUserInput(string prompt) => "";
         public static void DisplayGameResult(GameResult result, Player player) { }
     }

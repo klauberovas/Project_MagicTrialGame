@@ -9,6 +9,7 @@ namespace MagicTrialGame.Models
     public class Room
     {
         public int Number { get; set; }
+        public string Name { get; set; }
         public string Description { get; set; }
         public IRiddle Riddle { get; set; }
         public Spell RewardSpell { get; set; }
