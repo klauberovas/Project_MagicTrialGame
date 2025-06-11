@@ -1,0 +1,54 @@
+{
+    "riddles": [
+        {
+            "id": 1,
+            "roomNumber": 1,
+            "roomName": "Komnata Moudrosti",
+            "question": "Jsem neviditelný, ale všude přítomný. Beze mě nemůžeš myslet, ale nikdy mě neuvidíš. jsem rychlejší než svtělo, ale pomalejší než myšlenka. Co jsem?",
+            "answer": "čas",
+            "spell": "Zpomalení času",
+            "artifact": "Přesýpací hodiny věčnosti",
+            "hint": "Plyne stále dopředu a nikdy se nevrací..."
+        },
+        {
+            "id": 2,
+            "roomNumber": 2,
+            "roomName": "Komnata Živlů",
+            "question": "Narodil jsem se v ohni, ale voda je mou smrtí. Žiji ve vzduchu, ale země mě pohltí. Tančím bez nohou a zpívám bez hlasu. Co jsem?",
+            "answer": "plamen",
+            "spell": "Ohnivá koule",
+            "artifact": "Rubínový amulet",
+            "hint": "Osvětluji tmu, ale bojím se děště..."
+        },
+        {
+            "id": 3,
+            "roomNumber": 3,
+            "roomName": "Komnata Iluzí",
+            "question": "Vidíš mě každý den, ale nikdy mě nemůžeš chytit. Jsem věrný společník, ale nikdy nepromluvím. Následuji tě všude, ale v temnotě zmizím. Co jsem?",
+            "answer": "stín",
+            "spell": "Neviditelnost",
+            "artifact": "Plášť stínů",
+            "hint": "Jsem tmavší než ty, ale bez tebe neexistuji..."
+        },
+        {
+            "id": 4,
+            "roomNumber": 4,
+            "roomName": "Komnata Paměti",
+            "question": "Čím více mě bereš, tím větší se stávám. Čím více mě daruješ, tím menší jsem. Mám nekonečnou kapacitu, ale mohu být prázdný. Co jsem?",
+            "answer": "vědomosti",
+            "spell": "Čtení myšlenek",
+            "artifact": "Kniha všech tajemstvích",
+            "hint": "Jsem mocnější než meč, ale křehčí než pergamen..."
+        },
+        {
+            "id": 5,
+            "roomNumber": 5,
+            "roomName": "Komnata Osudu",
+            "question": "Čím více se snažíš mě uchopit, tím více mi unikáš. Vidíš mě v zrcadle, ale nikdy se mě nedotkneš. Jsem tvůj věrný průvodce životem, ale nikdy tě neposlechnu. Mění se s každým tvým rozhodnutím. Co jsem?",
+            "answer": "budoucnost",
+            "spell": "Ovládání osudu",
+            "artifact": "Koule předpovědi",
+            "hint": "Vždy je přede mnou, ale nikdy ji nedostihnu..."
+        }
+    ]
+}
