@@ -1,4 +1,4 @@
-﻿using MagicTrialGame.UI;
+﻿using MagicTrialGame.Models;
 
 namespace MagicTrialGame;
 
@@ -8,6 +8,7 @@ class Program
     {
         Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-        GameUI.DisplayWelcome();
+        Game game = new Game();
+        game.Run();
     }
 }

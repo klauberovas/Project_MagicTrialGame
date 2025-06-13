@@ -10,6 +10,11 @@ namespace MagicTrialGame.Models
     {
         public string Question { get; set; }
         public string CorrectAnswer { get; set; }
+        public Riddle(string question, string answer)
+        {
+            Question = question;
+            CorrectAnswer = answer;
+        }
         public bool CheckAnswer(string answer)
         {
             return string.Equals(answer, CorrectAnswer, StringComparison.OrdinalIgnoreCase);

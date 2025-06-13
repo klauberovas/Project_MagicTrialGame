@@ -12,5 +12,10 @@ namespace MagicTrialGame.Models
         public List<Artifact> Artifact { get; set; }
         public bool HasAnySpell => Spells.Count > 0;
         public bool HasAllSpells => Spells.Count == 5;
+
+        public Player(string name)
+        {
+            Name = name;
+        }
     }
 }

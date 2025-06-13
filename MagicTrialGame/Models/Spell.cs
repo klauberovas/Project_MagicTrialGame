@@ -8,6 +8,9 @@ namespace MagicTrialGame.Models
     public class Spell
     {
         public string Name { get; set; }
-        public string Description { get; set; }
+        public Spell(string name)
+        {
+            Name = name;
+        }
     }
 }

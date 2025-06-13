@@ -1,54 +1,52 @@
-{
-    "riddles": [
-        {
-            "id": 1,
-            "roomNumber": 1,
-            "roomName": "Komnata Moudrosti",
-            "question": "Jsem neviditelný, ale všude přítomný. Beze mě nemůžeš myslet, ale nikdy mě neuvidíš. jsem rychlejší než svtělo, ale pomalejší než myšlenka. Co jsem?",
-            "answer": "čas",
-            "spell": "Zpomalení času",
-            "artifact": "Přesýpací hodiny věčnosti",
-            "hint": "Plyne stále dopředu a nikdy se nevrací..."
-        },
-        {
-            "id": 2,
-            "roomNumber": 2,
-            "roomName": "Komnata Živlů",
-            "question": "Narodil jsem se v ohni, ale voda je mou smrtí. Žiji ve vzduchu, ale země mě pohltí. Tančím bez nohou a zpívám bez hlasu. Co jsem?",
-            "answer": "plamen",
-            "spell": "Ohnivá koule",
-            "artifact": "Rubínový amulet",
-            "hint": "Osvětluji tmu, ale bojím se děště..."
-        },
-        {
-            "id": 3,
-            "roomNumber": 3,
-            "roomName": "Komnata Iluzí",
-            "question": "Vidíš mě každý den, ale nikdy mě nemůžeš chytit. Jsem věrný společník, ale nikdy nepromluvím. Následuji tě všude, ale v temnotě zmizím. Co jsem?",
-            "answer": "stín",
-            "spell": "Neviditelnost",
-            "artifact": "Plášť stínů",
-            "hint": "Jsem tmavší než ty, ale bez tebe neexistuji..."
-        },
-        {
-            "id": 4,
-            "roomNumber": 4,
-            "roomName": "Komnata Paměti",
-            "question": "Čím více mě bereš, tím větší se stávám. Čím více mě daruješ, tím menší jsem. Mám nekonečnou kapacitu, ale mohu být prázdný. Co jsem?",
-            "answer": "vědomosti",
-            "spell": "Čtení myšlenek",
-            "artifact": "Kniha všech tajemstvích",
-            "hint": "Jsem mocnější než meč, ale křehčí než pergamen..."
-        },
-        {
-            "id": 5,
-            "roomNumber": 5,
-            "roomName": "Komnata Osudu",
-            "question": "Čím více se snažíš mě uchopit, tím více mi unikáš. Vidíš mě v zrcadle, ale nikdy se mě nedotkneš. Jsem tvůj věrný průvodce životem, ale nikdy tě neposlechnu. Mění se s každým tvým rozhodnutím. Co jsem?",
-            "answer": "budoucnost",
-            "spell": "Ovládání osudu",
-            "artifact": "Koule předpovědi",
-            "hint": "Vždy je přede mnou, ale nikdy ji nedostihnu..."
-        }
-    ]
-}
+[
+    {
+        "Id": 1,
+        "RoomNumber": 1,
+        "RoomName": "Komnata Moudrosti",
+        "Question": "Jsem neviditelný, ale všude přítomný. Beze mě nemůžeš myslet, ale nikdy mě neuvidíš. Jsem rychlejší než světlo, ale pomalejší než myšlenka. Co jsem?",
+        "Answer": "čas",
+        "Spell": "Zpomalení času",
+        "Artifact": "Přesýpací hodiny věčnosti",
+        "Hint": "Plyne stále dopředu a nikdy se nevrací..."
+    },
+    {
+        "Id": 2,
+        "RoomNumber": 2,
+        "RoomName": "Komnata Živlů",
+        "Question": "Narodil jsem se v ohni, ale voda je mou smrtí. Žiji ve vzduchu, ale země mě pohltí. Tančím bez nohou a zpívám bez hlasu. Co jsem?",
+        "Answer": "plamen",
+        "Spell": "Ohnivá koule",
+        "Artifact": "Rubínový amulet",
+        "Hint": "Osvětluji tmu, ale bojím se děště..."
+    },
+    {
+        "Id": 3,
+        "RoomNumber": 3,
+        "RoomName": "Komnata Iluzí",
+        "Question": "Vidíš mě každý den, ale nikdy mě nemůžeš chytit. Jsem věrný společník, ale nikdy nepromluvím. Následuji tě všude, ale v temnotě zmizím. Co jsem?",
+        "Answer": "stín",
+        "Spell": "Neviditelnost",
+        "Artifact": "Plášť stínů",
+        "Hint": "Jsem tmavší než ty, ale bez tebe neexistuji..."
+    },
+    {
+        "Id": 4,
+        "RoomNumber": 4,
+        "RoomName": "Komnata Paměti",
+        "Question": "Čím více mě bereš, tím větší se stávám. Čím více mě daruješ, tím menší jsem. Mám nekonečnou kapacitu, ale mohu být prázdný. Co jsem?",
+        "Answer": "vědomosti",
+        "Spell": "Čtení myšlenek",
+        "Artifact": "Kniha všech tajemstvích",
+        "Hint": "Jsem mocnější než meč, ale křehčí než pergamen..."
+    },
+    {
+        "Id": 5,
+        "RoomNumber": 5,
+        "RoomName": "Komnata Osudu",
+        "Question": "Čím více se snažíš mě uchopit, tím více mi unikáš. Vidíš mě v zrcadle, ale nikdy se mě nedotkneš. Jsem tvůj věrný průvodce životem, ale nikdy tě neposlechnu. Mění se s každým tvým rozhodnutím. Co jsem?",
+        "Answer": "budoucnost",
+        "Spell": "Ovládání osudu",
+        "Artifact": "Koule předpovědi",
+        "Hint": "Vždy je přede mnou, ale nikdy ji nedostihnu..."
+    }
+]

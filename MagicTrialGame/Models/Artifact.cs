@@ -8,6 +8,9 @@ namespace MagicTrialGame.Models
     public class Artifact
     {
         public string Name { get; set; }
-        public string Description { get; set; }
+        public Artifact(string name)
+        {
+            Name = name;
+        }
     }
 }
