@@ -8,13 +8,15 @@ namespace MagicTrialGame.Models
 {
     public class Riddle : IRiddle
     {
-        public string Question { get; set; }
-        public string CorrectAnswer { get; set; }
-        public List<string> Options { get; set; }
-        public Riddle(string question, string answer, List<string> options)
+        public string Question { get; }
+        public string CorrectAnswer { get; }
+        public string Hint { get; }
+        public List<string> Options { get; }
+        public Riddle(string question, string answer, string hint, List<string> options)
         {
             Question = question;
             CorrectAnswer = answer;
+            Hint = hint;
             Options = options;
         }
         public bool CheckAnswer(string answer)

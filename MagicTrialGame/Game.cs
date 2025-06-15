@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
+using MagicTrialGame.Interfaces;
 using MagicTrialGame.UI;
 using Microsoft.VisualBasic;
 
@@ -13,6 +14,7 @@ namespace MagicTrialGame.Models
         private Player Player;
         private List<Room> Rooms;
         private int CurrentRoomIndex = 1;
+        private const int MaxAttempts = 3;
 
         public Game()
         {
@@ -25,6 +27,17 @@ namespace MagicTrialGame.Models
             {
                 Room room = new Room(item);
                 Rooms.Add(room);
+            }
+        }
+
+        public void Run()
+        {
+            GameUI.PlayerWelcome();
+            InitPlayer();
+            GameUI.DisplayStory(Player.Name);
+            while (CurrentRoomIndex < Rooms.Count())
+            {
+                ProcessRoom();
             }
         }
 
@@ -53,99 +66,63 @@ namespace MagicTrialGame.Models
 
             GameUI.DisplayRoom(currentRoom);
             GameUI.DisplayRiddle(currentRiddle.Question);
+            GameUI.DisplayHint(currentRiddle.Hint);
             GameUI.DisplayOptions(currentRiddle.Options);
 
-            int attemps = 1;
+            int attemps = 0;
             bool isCorrectAnswer = false;
-            while (attemps <= 3)
+
+            while (attemps < MaxAttempts && !isCorrectAnswer)
             {
-                Console.ForegroundColor = ConsoleColor.Cyan;
+                // vrátí volbu od Usera
+                var userInput = GameUI.GetUserInput();
 
-                ConsoleKeyInfo input = Console.ReadKey();
-
-                Console.WriteLine();
-
-                switch (input.Key)
+                //vyhodnotí odpověď
+                if (userInput != null)
                 {
-                    case ConsoleKey.A:
-                        if (currentRiddle.CheckAnswer("A"))
-                        {
-                            Console.ForegroundColor = ConsoleColor.Green;
-                            Console.WriteLine("Výborně!!! Správná odpověď.");
-                            isCorrectAnswer = true;
-                            attemps = 4;
-                        }
-                        else
-                        {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("Nesprávná odpověď.");
-                            attemps++;
-                        }
-                        break;
-                    case ConsoleKey.B:
-                        if (currentRiddle.CheckAnswer("B"))
-                        {
-                            Console.ForegroundColor = ConsoleColor.Green;
-                            Console.WriteLine("Výborně!!! Správná odpověď.");
-                            isCorrectAnswer = true;
-                            attemps = 4;
-                        }
-                        else
-                        {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("Nesprávná odpověď.");
-                            attemps++;
-                        }
-                        break;
-                    case ConsoleKey.C:
-                        if (currentRiddle.CheckAnswer("C"))
-                        {
-                            Console.ForegroundColor = ConsoleColor.Green;
-                            Console.WriteLine("Výborně!!! Správná odpověď.");
-                            isCorrectAnswer = true;
-                            attemps = 4;
-                        }
-                        else
-                        {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("Nesprávná odpověď.");
-                            attemps++;
-                        }
-                        break;
-                    case ConsoleKey.D:
-                        if (currentRiddle.CheckAnswer("D"))
-                        {
-                            Console.ForegroundColor = ConsoleColor.Green;
-                            Console.WriteLine("Výborně!!! Správná odpověď.");
-                            isCorrectAnswer = true;
-                            attemps = 4;
-                        }
-                        else
-                        {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("Nesprávná odpověď.");
-                            attemps++;
-                        }
-                        break;
-                    default:
-                        Console.ForegroundColor = ConsoleColor.Cyan;
-                        Console.WriteLine("Neplatná odpověď. Zadej znovu.");
-                        attemps++;
-                        break;
+                    isCorrectAnswer = ProcessAnswer(currentRiddle, userInput);
+                }
+                else
+                {
+                    GameUI.DisplayMessage("⚠️  Neplatná odpověď. Zadej znovu.", ConsoleColor.Cyan);
+                }
+
+                if (!isCorrectAnswer)
+                {
+                    attemps++;
                 }
             }
 
+            // přiřazení artefaktu
+            if (isCorrectAnswer)
+            {
+                Player.Artifacts.Add(currentRoom.RoomArtifact);
+                GameUI.DisplayAward(currentRoom.RoomArtifact);
+            }
+            // vyčerpání limitu
+            else
+            {
+                GameUI.DisplayMessage($"🚫 Vyčerpali jste všechny pokusy {MaxAttempts} pokusy.", ConsoleColor.DarkRed);
+            }
+            CurrentRoomIndex++;
+
+            GameUI.ContinuePrompt();
+        }
+
+        private bool ProcessAnswer(IRiddle riddle, string answer)
+        {
+            if (riddle.CheckAnswer(answer))
+            {
+                GameUI.DisplayMessage("✅ Výborně!!! Správná odpověď.", ConsoleColor.Green);
+                return true;
+            }
+            else
+            {
+                GameUI.DisplayMessage("❌ Nesprávná odpověď.", ConsoleColor.Red);
+                return false;
+            }
         }
 
         // public void FinalBattle();
-
-        public void Run()
-        {
-            GameUI.PlayerWelcome();
-            InitPlayer();
-            GameUI.DisplayStory(Player.Name);
-            ProcessRoom();
-        }
-
     }
 }

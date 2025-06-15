@@ -11,18 +11,14 @@ namespace MagicTrialGame.Models
         public int Number { get; set; }
         public string Name { get; set; }
         public IRiddle Riddle { get; set; }
-        public string Hint { get; set; }
-        public Spell RewardSpell { get; set; }
-        public Artifact RewardArtifact { get; set; }
+        public Artifact RoomArtifact { get; set; }
 
         public Room(RiddleData riddleData)
         {
             Number = riddleData.RoomNumber;
             Name = riddleData.RoomName;
-            Riddle = new Riddle(riddleData.Question, riddleData.Answer, riddleData.Options);
-            Hint = riddleData.Hint;
-            RewardSpell = new Spell(riddleData.Spell);
-            RewardArtifact = new Artifact(riddleData.Artifact);
+            Riddle = new Riddle(riddleData.Question, riddleData.Answer, riddleData.Hint, riddleData.Options);
+            RoomArtifact = new Artifact(riddleData.Artifact, riddleData.Spell);
         }
         // public RoomResult ProcessRoom(Player player)
         // {

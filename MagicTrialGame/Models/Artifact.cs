@@ -7,10 +7,12 @@ namespace MagicTrialGame.Models
 {
     public class Artifact
     {
-        public string Name { get; set; }
-        public Artifact(string name)
+        public string Name { get; }
+        public Spell Spell { get; }
+        public Artifact(string name, string spellName)
         {
             Name = name;
+            Spell = new Spell(spellName);
         }
     }
 }

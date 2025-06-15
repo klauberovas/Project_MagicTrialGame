@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using MagicTrialGame.Models;
@@ -44,9 +45,20 @@ namespace MagicTrialGame.UI
             Console.WriteLine();
             Console.ResetColor();
 
+            ContinuePrompt();
+
+        }
+        public static void ContinuePrompt()
+        {
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("Dej [enter] pro pokračování... ");
-            Console.ReadLine();
+            Console.WriteLine("Pro pokračování stiskni klávesu nebo ESC pro ukončení.");
+
+            if (Console.ReadKey().Key == ConsoleKey.Escape)
+            {
+                Console.WriteLine("Program byl ukončen.");
+                Environment.Exit(0);
+            }
+
         }
         public static void DisplayRoom(Room room)
         {
@@ -91,18 +103,52 @@ namespace MagicTrialGame.UI
 
             Console.WriteLine();
         }
+        public static void DisplayHint(string hint)
+        {
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            Console.WriteLine($"Nápověda: {hint}");
+            Console.ResetColor();
+        }
         public static void DisplayOptions(List<string> options)
         {
+            Console.ForegroundColor = ConsoleColor.Cyan;
             foreach (var o in options)
             {
                 Console.WriteLine($"{o}");
             }
 
             Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.WriteLine("Zadej vybranou odpověď, např. A");
+            Console.WriteLine("Zadej vybranou odpověď, např. A.");
             Console.ResetColor();
         }
-        public static string GetUserInput(string prompt) => "";
+        public static string GetUserInput()
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            ConsoleKeyInfo input = Console.ReadKey();
+            Console.WriteLine();
+
+            return input.Key switch
+            {
+                ConsoleKey.A => "A",
+                ConsoleKey.B => "B",
+                ConsoleKey.C => "C",
+                ConsoleKey.D => "D",
+                _ => null
+            };
+        }
+        public static void DisplayMessage(string message, ConsoleColor color)
+        {
+            Console.ForegroundColor = color;
+            Console.WriteLine(message);
+            Console.ResetColor();
+        }
+
+        public static void DisplayAward(Artifact rewardArtifact)
+        {
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine($"Získal jsi artefakt: {rewardArtifact.Name}, díky kterému můžeš použít následující kouzlo: {rewardArtifact.Spell.Name}");
+            Console.ResetColor();
+        }
         public static void DisplayGameResult(GameResult result, Player player) { }
     }
 }

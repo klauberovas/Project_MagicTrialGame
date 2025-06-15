@@ -9,6 +9,7 @@ namespace MagicTrialGame.Interfaces
     {
         string Question { get; }
         string CorrectAnswer { get; }
+        string Hint { get; }
         List<string> Options { get; }
         bool CheckAnswer(string answer);
     }
