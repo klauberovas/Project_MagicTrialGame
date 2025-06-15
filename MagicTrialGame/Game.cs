@@ -14,7 +14,6 @@ namespace MagicTrialGame.Models
         private Player Player;
         private List<Room> Rooms;
         private int CurrentRoomIndex = 1;
-        private const int MaxAttempts = 3;
 
         public Game()
         {
@@ -28,6 +27,7 @@ namespace MagicTrialGame.Models
                 Room room = new Room(item);
                 Rooms.Add(room);
             }
+            Rooms.Sort((x, y) => x.Number.CompareTo(y.Number));
         }
 
         public void Run()
@@ -35,9 +35,10 @@ namespace MagicTrialGame.Models
             GameUI.PlayerWelcome();
             InitPlayer();
             GameUI.DisplayStory(Player.Name);
-            while (CurrentRoomIndex < Rooms.Count())
+
+            foreach (var room in Rooms)
             {
-                ProcessRoom();
+                room.ProcessRoom(Player);
             }
         }
 
@@ -59,70 +60,6 @@ namespace MagicTrialGame.Models
                 }
             }
         }
-        private void ProcessRoom()
-        {
-            var currentRoom = Rooms.Find(r => r.Number == CurrentRoomIndex);
-            var currentRiddle = currentRoom.Riddle;
-
-            GameUI.DisplayRoom(currentRoom);
-            GameUI.DisplayRiddle(currentRiddle.Question);
-            GameUI.DisplayHint(currentRiddle.Hint);
-            GameUI.DisplayOptions(currentRiddle.Options);
-
-            int attemps = 0;
-            bool isCorrectAnswer = false;
-
-            while (attemps < MaxAttempts && !isCorrectAnswer)
-            {
-                // vrátí volbu od Usera
-                var userInput = GameUI.GetUserInput();
-
-                //vyhodnotí odpověď
-                if (userInput != null)
-                {
-                    isCorrectAnswer = ProcessAnswer(currentRiddle, userInput);
-                }
-                else
-                {
-                    GameUI.DisplayMessage("⚠️  Neplatná odpověď. Zadej znovu.", ConsoleColor.Cyan);
-                }
-
-                if (!isCorrectAnswer)
-                {
-                    attemps++;
-                }
-            }
-
-            // přiřazení artefaktu
-            if (isCorrectAnswer)
-            {
-                Player.Artifacts.Add(currentRoom.RoomArtifact);
-                GameUI.DisplayAward(currentRoom.RoomArtifact);
-            }
-            // vyčerpání limitu
-            else
-            {
-                GameUI.DisplayMessage($"🚫 Vyčerpali jste všechny pokusy {MaxAttempts} pokusy.", ConsoleColor.DarkRed);
-            }
-            CurrentRoomIndex++;
-
-            GameUI.ContinuePrompt();
-        }
-
-        private bool ProcessAnswer(IRiddle riddle, string answer)
-        {
-            if (riddle.CheckAnswer(answer))
-            {
-                GameUI.DisplayMessage("✅ Výborně!!! Správná odpověď.", ConsoleColor.Green);
-                return true;
-            }
-            else
-            {
-                GameUI.DisplayMessage("❌ Nesprávná odpověď.", ConsoleColor.Red);
-                return false;
-            }
-        }
-
         // public void FinalBattle();
     }
 }
