@@ -51,13 +51,13 @@
         "Id": 4,
         "RoomNumber": 4,
         "RoomName": "Komnata Paměti",
-        "Question": "Čím více mě bereš, tím větší se stávám. Čím více mě daruješ, tím menší jsem. Mám nekonečnou kapacitu, ale mohu být prázdný. Co jsem?",
+        "Question": "Nevidíš mě, a přesto vedu tvé kroky. Čím více mě máš, tím mocnější jsi. Když se o mě podělíš, nemizím — rostu. Co jsem?",
         "Answer": "C",
         "Options": [
-            "A) peníze",
-            "B) láska",
+            "A) kouzelná moc",
+            "B) poklad",
             "C) vědomosti",
-            "D) energie"
+            "D) tajemství"
         ],
         "Spell": "Čtení myšlenek",
         "Artifact": "Kniha všech tajemstvích",
