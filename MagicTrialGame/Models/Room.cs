@@ -82,11 +82,5 @@ namespace MagicTrialGame.Models
                 return false;
             }
         }
-        // public RoomResult ProcessRoom(Player player)
-        // {
-        //     // Logika pro zpracování místnosti
-        //     // 3 pokusy, vyhodnocení odpovědi
-        // }
-
     }
 }
