@@ -19,7 +19,7 @@ namespace MagicTrialGame.Models
         {
             Number = riddleData.RoomNumber;
             Name = riddleData.RoomName;
-            Riddle = new Riddle(riddleData.Question, riddleData.Answer);
+            Riddle = new Riddle(riddleData.Question, riddleData.Answer, riddleData.Options);
             Hint = riddleData.Hint;
             RewardSpell = new Spell(riddleData.Spell);
             RewardArtifact = new Artifact(riddleData.Artifact);

@@ -9,7 +9,14 @@ namespace MagicTrialGame.UI
     public static class GameUI
     {
 
-        public static void DisplayWelcome()
+        public static void PlayerWelcome()
+        {
+            Console.Clear();
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Write($"Vítej cizinče ve hře ZKOUŠKA ČARODĚJE. Pověz mi své jméno: ");
+        }
+        public static void DisplayStory(string name)
         {
             Console.Clear();
 
@@ -23,7 +30,7 @@ namespace MagicTrialGame.UI
             Console.WriteLine();
 
             Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.WriteLine("📜 Po letech studia magie nadešel Tvůj den zkoušky Mistra.");
+            Console.WriteLine($"📜 {name.ToUpper()}, po letech studia magie nadešel Tvůj den zkoušky Mistra.");
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Vstupuješ do starobylé knihovny plné kouzel a tajemství.");
             Console.ForegroundColor = ConsoleColor.DarkYellow;
@@ -35,6 +42,11 @@ namespace MagicTrialGame.UI
             Console.WriteLine("👤 V poslední komnatě tě čeká Stín - padlý učedník.");
             Console.WriteLine("⚔️  Porazíš ho? Nebo ho dokážeš zachránit?");
             Console.WriteLine();
+            Console.ResetColor();
+
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("Dej [enter] pro pokračování... ");
+            Console.ReadLine();
         }
         public static void DisplayRoom(Room room)
         {
@@ -78,6 +90,17 @@ namespace MagicTrialGame.UI
             Console.ResetColor();
 
             Console.WriteLine();
+        }
+        public static void DisplayOptions(List<string> options)
+        {
+            foreach (var o in options)
+            {
+                Console.WriteLine($"{o}");
+            }
+
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine("Zadej vybranou odpověď, např. A");
+            Console.ResetColor();
         }
         public static string GetUserInput(string prompt) => "";
         public static void DisplayGameResult(GameResult result, Player player) { }

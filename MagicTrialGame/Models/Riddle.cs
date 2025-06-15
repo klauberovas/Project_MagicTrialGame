@@ -10,10 +10,12 @@ namespace MagicTrialGame.Models
     {
         public string Question { get; set; }
         public string CorrectAnswer { get; set; }
-        public Riddle(string question, string answer)
+        public List<string> Options { get; set; }
+        public Riddle(string question, string answer, List<string> options)
         {
             Question = question;
             CorrectAnswer = answer;
+            Options = options;
         }
         public bool CheckAnswer(string answer)
         {

@@ -11,6 +11,7 @@ namespace MagicTrialGame.Models
         public int RoomNumber { get; set; }
         public string RoomName { get; set; }
         public string Question { get; set; }
+         public List<string> Options { get; set; }
         public string Answer { get; set; }
         public string Spell { get; set; }
         public string Artifact { get; set; }
