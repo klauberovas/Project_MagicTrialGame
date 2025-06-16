@@ -20,13 +20,10 @@ namespace MagicTrialGame.Models
             Number = riddleData.RoomNumber;
             Name = riddleData.RoomName;
             Riddle = new Riddle(riddleData.Question, riddleData.Answer, riddleData.Hint, riddleData.Options);
-            RoomArtifact = new Artifact(riddleData.Artifact, riddleData.Spell);
+            RoomArtifact = new Artifact(riddleData.Artifact, riddleData.MagicPower);
         }
         public void ProcessRoom(Player player)
         {
-            //  var currentRoom = Rooms.Find(r => r.Number == CurrentRoomIndex);
-            // var currentRiddle = currentRoom.Riddle;
-
             GameUI.DisplayRoom(this);
             GameUI.DisplayRiddle(Riddle.Question);
             GameUI.DisplayHint(Riddle.Hint);
@@ -56,16 +53,18 @@ namespace MagicTrialGame.Models
                 }
             }
 
-            // přiřazení artefaktu
+            // přiřazení artefaktu a magické síly
             if (isCorrectAnswer)
             {
                 player.Artifacts.Add(RoomArtifact);
-                GameUI.DisplayAward(this.RoomArtifact);
+                player.AbilityPower += RoomArtifact.MagicPower;
+                GameUI.DisplayAward(this.RoomArtifact.Name, this.RoomArtifact.MagicPower, player.Name, player.AbilityPower);
             }
             // vyčerpání limitu
             else
             {
                 GameUI.DisplayMessage($"🚫 Vyčerpali jste všechny pokusy {MaxAttempts} pokusy.", ConsoleColor.DarkRed);
+                GameUI.DisplayNoAward(player.AbilityPower);
             }
             GameUI.ContinuePrompt();
         }

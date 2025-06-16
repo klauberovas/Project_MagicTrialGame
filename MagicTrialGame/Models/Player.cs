@@ -7,8 +7,20 @@ namespace MagicTrialGame.Models
 {
     public class Player
     {
-        public string Name { get; set; }
+        private string _name;
+        public string Name
+        {
+            get => _name;
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                    throw new ArgumentException("Jméno nemůže být prázdné.");
+
+                _name = char.ToUpper(value[0]) + value.Substring(1).ToLower();
+            }
+        }
         public List<Artifact> Artifacts { get; set; }
+        public int AbilityPower { get; set; } = 0;
         public bool HasAnyArtifact => Artifacts.Count > 0;
         public bool HasAllArtifacts => Artifacts.Count == 5;
 

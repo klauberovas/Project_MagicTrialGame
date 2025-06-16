@@ -46,18 +46,26 @@ namespace MagicTrialGame.Models
         {
             while (true)
             {
-                string input = Console.ReadLine();
+                string input = Console.ReadLine()?.Trim();
 
-                if (input == null || input == "")
+                if (string.IsNullOrWhiteSpace(input))
                 {
-                    Console.WriteLine("Zadej jméno znovu:");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("❌ Jméno nemůže být prázdné. Zadej jméno znovu: ");
+                    Console.ResetColor();
                     continue;
                 }
-                else
+                //Validace pouze písmen
+                if (!input.All(char.IsLetter))
                 {
-                    Player = new Player(input);
-                    return;
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Write("❌ Jméno může obsahovat pouze písmena. Zadej jméno znovu: ");
+                    Console.ResetColor();
+                    continue;
                 }
+
+                Player = new Player(input);
+                return;
             }
         }
         // public void FinalBattle();

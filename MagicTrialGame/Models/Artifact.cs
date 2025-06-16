@@ -8,11 +8,11 @@ namespace MagicTrialGame.Models
     public class Artifact
     {
         public string Name { get; }
-        public Spell Spell { get; }
-        public Artifact(string name, string spellName)
+        public int MagicPower { get; }
+        public Artifact(string name, int magicPower)
         {
             Name = name;
-            Spell = new Spell(spellName);
+            MagicPower = magicPower;
         }
     }
 }

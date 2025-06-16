@@ -2,22 +2,6 @@
     {
         "Id": 1,
         "RoomNumber": 1,
-        "RoomName": "Komnata Moudrosti",
-        "Question": "Jsem neviditelný, ale všude přítomný. Beze mě nemůžeš myslet, ale nikdy mě neuvidíš. Jsem rychlejší než světlo, ale pomalejší než myšlenka. Co jsem?",
-        "Answer": "B",
-        "Options": [
-            "A) vzduch",
-            "B) čas",
-            "C) mysl",
-            "D) světlo"
-        ],
-        "Spell": "Zpomalení času",
-        "Artifact": "Přesýpací hodiny věčnosti",
-        "Hint": "Plyne stále dopředu a nikdy se nevrací..."
-    },
-    {
-        "Id": 2,
-        "RoomNumber": 2,
         "RoomName": "Komnata Živlů",
         "Question": "Narodil jsem se v ohni, ale voda je mou smrtí. Žiji ve vzduchu, ale země mě pohltí. Tančím bez nohou a zpívám bez hlasu. Co jsem?",
         "Answer": "A",
@@ -27,13 +11,13 @@
             "C) kouř",
             "D) pára"
         ],
-        "Spell": "Ohnivá koule",
         "Artifact": "Rubínový amulet",
+        "MagicPower": 40,
         "Hint": "Osvětluji tmu, ale bojím se děště..."
     },
     {
-        "Id": 3,
-        "RoomNumber": 3,
+        "Id": 2,
+        "RoomNumber": 2,
         "RoomName": "Komnata Iluzí",
         "Question": "Vidíš mě každý den, ale nikdy mě nemůžeš chytit. Jsem věrný společník, ale nikdy nepromluvím. Následuji tě všude, ale v temnotě zmizím. Co jsem?",
         "Answer": "D",
@@ -43,9 +27,25 @@
             "C) odraz",
             "D) stín"
         ],
-        "Spell": "Neviditelnost",
         "Artifact": "Plášť stínů",
+        "MagicPower": 30,
         "Hint": "Jsem tmavší než ty, ale bez tebe neexistuji..."
+    },
+    {
+        "Id": 3,
+        "RoomNumber": 3,
+        "RoomName": "Komnata Moudrosti",
+        "Question": "Jsem neviditelný, ale všude přítomný. Beze mě nemůžeš myslet, ale nikdy mě neuvidíš. Jsem rychlejší než světlo, ale pomalejší než myšlenka. Co jsem?",
+        "Answer": "B",
+        "Options": [
+            "A) vzduch",
+            "B) čas",
+            "C) mysl",
+            "D) světlo"
+        ],
+        "Artifact": "Přesýpací hodiny věčnosti",
+        "MagicPower": 50,
+        "Hint": "Plyne stále dopředu a nikdy se nevrací..."
     },
     {
         "Id": 4,
@@ -59,8 +59,8 @@
             "C) vědomosti",
             "D) tajemství"
         ],
-        "Spell": "Čtení myšlenek",
         "Artifact": "Kniha všech tajemstvích",
+        "MagicPower": 55,
         "Hint": "Jsem mocnější než meč, ale křehčí než pergamen..."
     },
     {
@@ -75,8 +75,8 @@
             "C) sen",
             "D) naděje"
         ],
-        "Spell": "Ovládání osudu",
         "Artifact": "Koule předpovědi",
+        "MagicPower": 60,
         "Hint": "Vždy je přede mnou, ale nikdy ji nedostihnu..."
     }
 ]

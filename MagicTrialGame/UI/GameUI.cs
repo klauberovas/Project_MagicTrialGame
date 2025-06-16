@@ -14,44 +14,56 @@ namespace MagicTrialGame.UI
         {
             Console.Clear();
             Console.WriteLine();
+
+            //Hlavní titulek
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("╔══════════════════════════════════════════════════════════╗");
+            Console.WriteLine("║                                                          ║");
+            Console.WriteLine("║              🧙 ZKOUŠKA ČARODĚJE 🧙                      ║");
+            Console.WriteLine("║                                                          ║");
+            Console.WriteLine("╚══════════════════════════════════════════════════════════╝");
+            Console.WriteLine();
+
+            // Uvítací text
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("✨ Vítej, cizinče, v mystickém světě kouzel a magie! ✨");
+            Console.WriteLine();
+
+            // Výzva k zadání jména
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.Write($"Vítej cizinče ve hře ZKOUŠKA ČARODĚJE. Pověz mi své jméno: ");
+            Console.Write("🔮 Pověz mi své jméno, odvážný dobrodruhu: ");
+            Console.ForegroundColor = ConsoleColor.White;
         }
         public static void DisplayStory(string name)
         {
             Console.Clear();
-
-            Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.WriteLine("             ★ ✦ ◆ ✦ ★");
-            Console.WriteLine("╔══════════════════════════════════════╗");
-            Console.WriteLine("║       🧙  ZKOUŠKA ČARODĚJE 🧙        ║");
-            Console.WriteLine("╚══════════════════════════════════════╝");
-            Console.WriteLine("             ★ ✦ ◆ ✦ ★");
-            Console.ResetColor();
             Console.WriteLine();
 
+            // Příběhový úvod
             Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.WriteLine($"📜 {name.ToUpper()}, po letech studia magie nadešel Tvůj den zkoušky Mistra.");
+            Console.WriteLine($"📜 {name}, po letech studia magie nadešel Tvůj den zkoušky Mistra.");
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Vstupuješ do starobylé knihovny plné kouzel a tajemství.");
             Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.WriteLine("Čeká Tě 5 komnat s náročnými hádankami. S každou správnou odpověďí");
-            Console.WriteLine("získáš kouzlo a artefakt, které Ti pomohou v závěrečném souboji.");
+            Console.WriteLine("Čeká Tě 5 komnat s náročnými hádankami. Každá správná odpověď");
+            Console.WriteLine("Ti odhalí mocný artefakt, jehož magická síla posílí Tvou moc");
+            Console.WriteLine("pro závrečný souboj s temným čarodějem.");
             Console.WriteLine();
 
+            // Varování před finálním soubojem
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine("👤 V poslední komnatě tě čeká Stín - padlý učedník.");
             Console.WriteLine("⚔️  Porazíš ho? Nebo ho dokážeš zachránit?");
             Console.WriteLine();
-            Console.ResetColor();
 
+            // Výzva k pokračování
             ContinuePrompt();
-
         }
         public static void ContinuePrompt()
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("Pro pokračování stiskni klávesu nebo ESC pro ukončení.");
+            Console.ForegroundColor = ConsoleColor.White;
 
             if (Console.ReadKey().Key == ConsoleKey.Escape)
             {
@@ -66,7 +78,7 @@ namespace MagicTrialGame.UI
 
             // Magický efekt vstupu
             Console.ForegroundColor = ConsoleColor.DarkMagenta;
-            Console.WriteLine("✨ Vstupujete do nové místnosti...");
+            Console.WriteLine("✨ Vstupuješ do nové místnosti...");
             Thread.Sleep(800);
             Console.Clear();
 
@@ -123,7 +135,7 @@ namespace MagicTrialGame.UI
         }
         public static string GetUserInput()
         {
-            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.ForegroundColor = ConsoleColor.White;
             ConsoleKeyInfo input = Console.ReadKey();
             Console.WriteLine();
 
@@ -143,10 +155,55 @@ namespace MagicTrialGame.UI
             Console.ResetColor();
         }
 
-        public static void DisplayAward(Artifact rewardArtifact)
+        public static void DisplayAward(string artifactName, int magicPower, string name, int abilityPower)
         {
+            Console.WriteLine();
+
+            // ocenění
             Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.WriteLine($"Získal jsi artefakt: {rewardArtifact.Name}, díky kterému můžeš použít následující kouzlo: {rewardArtifact.Spell.Name}");
+
+            Console.WriteLine("╔════════════════════════════════════════════════════════╗");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("║                    ✨ ÚSPĚCH! ✨                       ║");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("╚════════════════════════════════════════════════════════╝");
+            Console.WriteLine();
+
+            Console.WriteLine($"🏆 {name}, získal/a jsi artefakt: {artifactName}");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine($"⚡ Magická síla artefaktu: +{magicPower} bodů");
+            Console.WriteLine();
+
+            // Celkový stav
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine($"🔮 Tvá celková magická síla: {abilityPower} bodů");
+            Console.WriteLine();
+
+            Console.ResetColor();
+        }
+        public static void DisplayNoAward(int abilityPower)
+        {
+            Console.WriteLine();
+
+            // rámeček
+            // Rámček pro neúspěch
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("╔════════════════════════════════════════════════════════╗");
+            Console.WriteLine("║                   ❌ NESPRÁVNĚ ❌                     ║");
+            Console.WriteLine("╚════════════════════════════════════════════════════════╝");
+            Console.WriteLine();
+
+            // Povzbuzující zpráva
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("💭 Bohužel, tentokrát to nevyšlo...");
+            Console.WriteLine("🎯 Ale nevzdávej se! Každá chyba tě učí něco nového.");
+            Console.WriteLine();
+
+            // Celkový stav
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine($"🔮 Tvá současná magická síla: {abilityPower} bodů");
+            Console.WriteLine();
+
             Console.ResetColor();
         }
         public static void DisplayGameResult(GameResult result, Player player) { }
