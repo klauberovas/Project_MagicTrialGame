@@ -206,6 +206,33 @@ namespace MagicTrialGame.UI
 
             Console.ResetColor();
         }
+        public static void DisplayFightIntro(Player player, Enemy enemy)
+        {
+            Console.Clear();
+
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine($"Nyní Tě čeká finální souboj se Stínem.");
+            Console.WriteLine();
+
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine($"{player.Name}, Tvé aktuální stavové konto je: ");
+            Console.WriteLine($"Počet životů: {player.Health}");
+            Console.WriteLine($"Magická síla: {player.AbilityPower}");
+            Console.WriteLine();
+
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("Stínovo stavové konto je:");
+            Console.WriteLine($"Počet životů: {enemy.Health}");
+            Console.WriteLine($"Magická síla: {enemy.AbilityPower}");
+            Console.WriteLine();
+
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine("Jsi připraven?");
+
+            Console.ForegroundColor = ConsoleColor.Cyan;
+
+            ContinuePrompt();
+        }
         public static void DisplayGameResult(GameResult result, Player player) { }
     }
 }

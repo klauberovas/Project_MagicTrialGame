@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace MagicTrialGame.Models
 {
-    public class Player
+    public class Player(string name) : Entity(name, 0)
     {
         private string _name;
-        public string Name
+        public override string Name
         {
             get => _name;
             set
@@ -19,16 +19,8 @@ namespace MagicTrialGame.Models
                 _name = char.ToUpper(value[0]) + value.Substring(1).ToLower();
             }
         }
-        public List<Artifact> Artifacts { get; set; }
-        public int AbilityPower { get; set; } = 0;
+        public List<Artifact> Artifacts { get; set; } = new List<Artifact>();
         public bool HasAnyArtifact => Artifacts.Count > 0;
         public bool HasAllArtifacts => Artifacts.Count == 5;
-
-        public Player(string name)
-        {
-            Name = name;
-            Artifacts = new List<Artifact>();
-        }
-
     }
 }

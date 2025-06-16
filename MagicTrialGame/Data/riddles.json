@@ -12,7 +12,7 @@
             "D) pára"
         ],
         "Artifact": "Rubínový amulet",
-        "MagicPower": 40,
+        "MagicPower": 4,
         "Hint": "Osvětluji tmu, ale bojím se děště..."
     },
     {
@@ -28,7 +28,7 @@
             "D) stín"
         ],
         "Artifact": "Plášť stínů",
-        "MagicPower": 30,
+        "MagicPower": 6,
         "Hint": "Jsem tmavší než ty, ale bez tebe neexistuji..."
     },
     {
@@ -44,7 +44,7 @@
             "D) světlo"
         ],
         "Artifact": "Přesýpací hodiny věčnosti",
-        "MagicPower": 50,
+        "MagicPower": 5,
         "Hint": "Plyne stále dopředu a nikdy se nevrací..."
     },
     {
@@ -60,7 +60,7 @@
             "D) tajemství"
         ],
         "Artifact": "Kniha všech tajemstvích",
-        "MagicPower": 55,
+        "MagicPower": 5,
         "Hint": "Jsem mocnější než meč, ale křehčí než pergamen..."
     },
     {
@@ -76,7 +76,7 @@
             "D) naděje"
         ],
         "Artifact": "Koule předpovědi",
-        "MagicPower": 60,
+        "MagicPower": 8,
         "Hint": "Vždy je přede mnou, ale nikdy ji nedostihnu..."
     }
 ]

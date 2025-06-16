@@ -13,8 +13,7 @@ namespace MagicTrialGame.Models
     {
         private Player Player;
         private List<Room> Rooms;
-        private int CurrentRoomIndex = 1;
-
+        private Enemy Enemy;
         public Game()
         {
             string path = @"data/riddles.json";
@@ -28,18 +27,24 @@ namespace MagicTrialGame.Models
                 Rooms.Add(room);
             }
             Rooms.Sort((x, y) => x.Number.CompareTo(y.Number));
+
+            // Inicializace Stína
+            Enemy = new Enemy("Stín", 15);
         }
 
         public void Run()
         {
             GameUI.PlayerWelcome();
+
             InitPlayer();
+
             GameUI.DisplayStory(Player.Name);
 
-            foreach (var room in Rooms)
-            {
-                room.ProcessRoom(Player);
-            }
+            Rooms.ForEach(r => r.ProcessRoom(Player));
+
+            GameUI.DisplayFightIntro(Player, Enemy);
+
+            FinalBattle();
         }
 
         private void InitPlayer()
@@ -68,6 +73,41 @@ namespace MagicTrialGame.Models
                 return;
             }
         }
-        // public void FinalBattle();
+        public void FinalBattle()
+        {
+            while (Player.Health > 0 && Enemy.Health > 0)
+            {
+                Player.Attack(Enemy);
+
+                if (Enemy.Health <= 0)
+                    break;
+
+                Enemy.Attack(Player);
+            }
+
+            if (Player.Health <= 0)
+            {
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("╔════════════════════════════════════════╗");
+                Console.WriteLine("║              💀 PROHRA 💀              ║");
+                Console.WriteLine("╚════════════════════════════════════════╝");
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine("Bohužel vyhrál Stín... Zkus to příště.");
+            }
+            else
+            {
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("╔════════════════════════════════════════╗");
+                Console.WriteLine("║             🎉 VÍTĚZSTVÍ! 🎉           ║");
+                Console.WriteLine("╚════════════════════════════════════════╝");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("Gratuluji!!! Porazil jsi Stína!");
+            }
+
+            Console.ResetColor();
+            Console.WriteLine();
+        }
     }
 }
