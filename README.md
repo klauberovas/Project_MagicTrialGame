@@ -19,11 +19,11 @@ Po letech studia magie nastal den zkoušky Mistra. Vstupuješ do starobylé magi
 - **Neúspěšné řešení** → žádná odměna, pokračování do další místnosti
 - **Progresivní odměny**: Magická moc artefaktů se zvyšuje s obtížností hádanek
 - **Progresivní bodování za správné odpovědi**:
-  - 1. místnost: **2 body** (lehká hádanka)
-  - 2. místnost: **3 body** (střední hádanka)
-  - 3. místnost: **3 body** (střední hádanka)
-  - 4. místnost: **4 body** (těžká hádanka)
-  - 5. místnost: **5 bodů** (nejtěžší hádanka)
+  1. místnost: **2 body** (lehká hádanka)
+  2. místnost: **3 body** (střední hádanka)
+  3. místnost: **3 body** (střední hádanka)
+  4. místnost: **4 body** (těžká hádanka)
+  5. místnost: **5 bodů** (nejtěžší hádanka)
   - **Maximální možná magická moc**: 17 bodů
 
 ### ⚔️ Finální souboj se Stínem 

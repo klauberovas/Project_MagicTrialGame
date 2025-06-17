@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MagicTrialGame.Models
+namespace MagicTrialGame.Models.Rooms
 {
-    public enum GameResult
+    public class RoomProcessor
     {
-        Victory,
-        Defeat
+        
     }
 }

@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using MagicTrialGame.Interfaces;
 using MagicTrialGame.UI;
 
 namespace MagicTrialGame.Models
@@ -11,7 +10,7 @@ namespace MagicTrialGame.Models
     {
         public int Number { get; set; }
         public string Name { get; set; }
-        public IRiddle Riddle { get; set; }
+        public Riddle Riddle { get; set; }
         public Artifact RoomArtifact { get; set; }
         private const int MaxAttempts = 3;
 
@@ -68,7 +67,7 @@ namespace MagicTrialGame.Models
             }
             GameUI.ContinuePrompt();
         }
-        private bool ProcessAnswer(IRiddle riddle, string answer)
+        private bool ProcessAnswer(Riddle riddle, string answer)
         {
             if (riddle.CheckAnswer(answer))
             {

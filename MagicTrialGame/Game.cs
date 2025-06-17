@@ -1,35 +1,20 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text.Json;
-using System.Threading.Tasks;
-using MagicTrialGame.Interfaces;
 using MagicTrialGame.UI;
-using Microsoft.VisualBasic;
 
 namespace MagicTrialGame.Models
 {
     public class Game
     {
-        private Player Player;
-        private List<Room> Rooms;
-        private Enemy Enemy;
+        private Player player;
+        private Enemy enemy;
+        private readonly List<Room> rooms = new List<Room>();
+
+        private List<RiddleData> riddleDataList = new List<RiddleData>();
         public Game()
         {
-            string path = @"data/riddles.json";
-            string jsonString = File.ReadAllText(path);
-            List<RiddleData> riddles = JsonSerializer.Deserialize<List<RiddleData>>(jsonString);
-
-            Rooms = new List<Room>();
-            foreach (var item in riddles)
-            {
-                Room room = new Room(item);
-                Rooms.Add(room);
-            }
-            Rooms.Sort((x, y) => x.Number.CompareTo(y.Number));
-
-            // Inicializace Stína
-            Enemy = new Enemy("Stín", 15);
+            LoadRiddles();
+            InitializeRooms();
+            InitializeEnemy();
         }
 
         public void Run()
@@ -38,15 +23,44 @@ namespace MagicTrialGame.Models
 
             InitPlayer();
 
-            GameUI.DisplayStory(Player.Name);
+            GameUI.DisplayStory(player.Name);
 
-            Rooms.ForEach(r => r.ProcessRoom(Player));
+            rooms.ForEach(r => r.ProcessRoom(player));
 
-            GameUI.DisplayFightIntro(Player, Enemy);
+            GameUI.DisplayFightIntro(player, enemy);
 
             FinalBattle();
         }
 
+        public void LoadRiddles()
+        {
+            try
+            {
+                string path = @"data/riddles.json";
+                string jsonString = File.ReadAllText(path);
+                riddleDataList = JsonSerializer.Deserialize<List<RiddleData>>(jsonString);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("❌ Chyba při načítání hádanek: " + ex.Message);
+                Environment.Exit(1);
+            }
+        }
+
+        public void InitializeRooms()
+        {
+            foreach (var item in riddleDataList)
+            {
+                Room room = new Room(item);
+                rooms.Add(room);
+            }
+
+            rooms.Sort((x, y) => x.Number.CompareTo(y.Number));
+        }
+        public void InitializeEnemy()
+        {
+            enemy = new Enemy("Stín", 15);
+        }
         private void InitPlayer()
         {
             while (true)
@@ -69,45 +83,28 @@ namespace MagicTrialGame.Models
                     continue;
                 }
 
-                Player = new Player(input);
+                player = new Player(input);
                 return;
             }
         }
         public void FinalBattle()
         {
-            while (Player.Health > 0 && Enemy.Health > 0)
+            GameResult battleResult = Battle();
+            GameUI.DisplayGameResult(battleResult);
+        }
+        public GameResult Battle()
+        {
+            while (player.Health > 0 && enemy.Health > 0)
             {
-                Player.Attack(Enemy);
+                player.Attack(enemy);
 
-                if (Enemy.Health <= 0)
+                if (enemy.Health <= 0)
                     break;
 
-                Enemy.Attack(Player);
+                enemy.Attack(player);
             }
 
-            if (Player.Health <= 0)
-            {
-                Console.WriteLine();
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("╔════════════════════════════════════════╗");
-                Console.WriteLine("║              💀 PROHRA 💀              ║");
-                Console.WriteLine("╚════════════════════════════════════════╝");
-                Console.ForegroundColor = ConsoleColor.DarkRed;
-                Console.WriteLine("Bohužel vyhrál Stín... Zkus to příště.");
-            }
-            else
-            {
-                Console.WriteLine();
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("╔════════════════════════════════════════╗");
-                Console.WriteLine("║             🎉 VÍTĚZSTVÍ! 🎉           ║");
-                Console.WriteLine("╚════════════════════════════════════════╝");
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("Gratuluji!!! Porazil jsi Stína!");
-            }
-
-            Console.ResetColor();
-            Console.WriteLine();
+            return player.Health <= 0 ? GameResult.Defeat : GameResult.Victory;
         }
     }
 }

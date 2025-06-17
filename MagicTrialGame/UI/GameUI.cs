@@ -216,7 +216,7 @@ namespace MagicTrialGame.UI
 
             Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine($"{player.Name}, Tvé aktuální stavové konto je: ");
-            Console.WriteLine($"Počet životů: {player.Health}");
+            Console.WriteLine($"Počet životů {player.Health}");
             Console.WriteLine($"Magická síla: {player.AbilityPower}");
             Console.WriteLine();
 
@@ -233,6 +233,34 @@ namespace MagicTrialGame.UI
 
             ContinuePrompt();
         }
-        public static void DisplayGameResult(GameResult result, Player player) { }
+        public static void DisplayGameResult(GameResult result)
+        {
+            switch (result)
+            {
+                case GameResult.Victory:
+                    Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("╔════════════════════════════════════════╗");
+                    Console.WriteLine("║             🎉 VÍTĚZSTVÍ! 🎉           ║");
+                    Console.WriteLine("╚════════════════════════════════════════╝");
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("Gratuluji!!! Porazil jsi Stína!");
+                    break;
+
+                case GameResult.Defeat:
+                    Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("╔════════════════════════════════════════╗");
+                    Console.WriteLine("║              💀 PROHRA 💀              ║");
+                    Console.WriteLine("╚════════════════════════════════════════╝");
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                    Console.WriteLine("Bohužel vyhrál Stín... Zkus to příště.");
+
+                    break;
+            }
+
+            Console.ResetColor();
+            Console.WriteLine();
+        }
     }
 }
