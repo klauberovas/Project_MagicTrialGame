@@ -72,6 +72,13 @@ namespace MagicTrialGame.UI
             }
 
         }
+
+        public static void DisplayValidationError(string errorMessage)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write($"❌ {errorMessage} ");
+            Console.ResetColor();
+        }
         public static void DisplayRoom(Room room)
         {
             Console.Clear();

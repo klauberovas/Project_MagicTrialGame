@@ -33,10 +33,8 @@ namespace MagicTrialGame.Models
 
             while (attemps < MaxAttempts && !isCorrectAnswer)
             {
-                // vrátí volbu od Usera
                 var userInput = GameUI.GetUserInput();
 
-                //vyhodnotí odpověď
                 if (userInput != null)
                 {
                     isCorrectAnswer = ProcessAnswer(Riddle, userInput);
