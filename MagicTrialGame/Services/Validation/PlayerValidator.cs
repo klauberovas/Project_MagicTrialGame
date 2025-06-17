@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using MagicTrialGame.Models;
 using MagicTrialGame.UI;
 
 namespace MagicTrialGame.Models

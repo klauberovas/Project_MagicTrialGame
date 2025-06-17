@@ -1,6 +1,3 @@
-using System.Text.Json;
-using MagicTrialGame.UI;
-
 namespace MagicTrialGame.Models
 {
 
