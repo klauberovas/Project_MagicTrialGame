@@ -58,11 +58,13 @@ Po letech studia magie nastal den zkoušky Mistra. Vstupuješ do starobylé magi
 ## 🏗️ Architektura projektu
 Hra využívá vícevrstvou architekturu s jasným oddělením zodpovědností mezi jednotlivými komponentami. Projekt je organizován do logických složek podle funkcionality.
 
+```text
 Program.cs → Game.cs → GameEngine.cs → GameInitializer.cs + GameFlow.cs
                                     ↓
                               GameData (centrální stav)
                                     ↓
                     RoomManager → BattleEngine → GameUI
+```
 
 ### 📁 Struktura projektu
 1. #### 🎯 Core - Jádro aplikace
