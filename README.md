@@ -66,13 +66,13 @@ Program.cs → Game.cs → GameEngine.cs → GameInitializer.cs + GameFlow.cs
 
 ### 📁 Struktura projektu
 1. #### 🎯 Core - Jádro aplikace
-**Program.cs** - Entry point aplikace, inicializuje hru a spouští hlavní smyčku
-**Game.cs** - Hlavní třída hry, která deleguje řízení na GameEngine
-**GameEngine.cs** - Centrální řídící jednotka koordinující inicializaci a průběh hry
-**GameFlow.cs** - Řídí sekvenci herních událostí (uvítání hráče, zpracování místností, finální souboj)
-**GameInitializer.cs** - Zodpovědný za inicializaci herních dat (hádanky, místnosti, nepřítele)                  
+- **Program.cs** - Entry point aplikace, inicializuje hru a spouští hlavní smyčku
+- **Game.cs** - Hlavní třída hry, která deleguje řízení na GameEngine
+- **GameEngine.cs** - Centrální řídící jednotka koordinující inicializaci a průběh hry
+- **GameFlow.cs** - Řídí sekvenci herních událostí (uvítání hráče, zpracování místností, finální souboj)
+- **GameInitializer.cs** - Zodpovědný za inicializaci herních dat (hádanky, místnosti, nepřítele)                  
 
-2. #### 📊 Models - Datové modely a business logika
+2. #### 📊 Models - Datové modely a logika
 📂 Data
 - **GameData.cs** - Centrální datový kontejner uchovávající celkový stav hry
 - **RiddleData.cs** - Datový model pro uchovávání informací o hádankách
