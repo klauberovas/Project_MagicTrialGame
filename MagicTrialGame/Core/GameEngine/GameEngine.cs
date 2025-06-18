@@ -14,7 +14,7 @@ namespace MagicTrialGame.Models
 
         public void Run()
         {
-            var gameData = initializer.Initialize();
+            GameData gameData = initializer.Initialize();
             gameFlow.Execute(gameData);
         }
     }
