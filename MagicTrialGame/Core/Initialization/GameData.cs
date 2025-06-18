@@ -1,11 +1,13 @@
+using MagicTrialGame.Models.Rooms;
+
 namespace MagicTrialGame.Models
 {
     public class GameData
     {
         public Player Player { get; private set; }
         public Enemy Enemy { get; }
-        public List<Room> Rooms { get; }
-        public GameData(Enemy enemy, List<Room> rooms)
+        public List<RoomData> Rooms { get; }
+        public GameData(Enemy enemy, List<RoomData> rooms)
         {
             Enemy = enemy;
             Rooms = rooms;

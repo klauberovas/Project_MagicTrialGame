@@ -1,4 +1,5 @@
 using MagicTrialGame.Models;
+using MagicTrialGame.Models.Rooms;
 
 namespace MagicTrialGame.UI
 {
@@ -74,7 +75,7 @@ namespace MagicTrialGame.UI
             Console.Write($"❌ {errorMessage} ");
             Console.ResetColor();
         }
-        public static void DisplayRoom(Room room)
+        public static void DisplayRoom(RoomData room)
         {
             Console.Clear();
 

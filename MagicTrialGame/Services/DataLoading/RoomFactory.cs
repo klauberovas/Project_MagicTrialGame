@@ -1,14 +1,16 @@
+using MagicTrialGame.Models.Rooms;
+
 namespace MagicTrialGame.Models
 {
     public class RoomFactory
     {
-        public List<Room> CreateRooms(List<RiddleData> riddleDataList)
+        public List<RoomData> CreateRooms(List<RiddleData> riddleDataList)
         {
-            var rooms = new List<Room>();
+            var rooms = new List<RoomData>();
 
             foreach (var riddleData in riddleDataList)
             {
-                Room room = new Room(riddleData);
+                RoomData room = new RoomData(riddleData);
                 rooms.Add(room);
             }
 

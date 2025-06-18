@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MagicTrialGame.Models.Rooms;
 using MagicTrialGame.UI;
 
 namespace MagicTrialGame.Models
@@ -34,7 +35,8 @@ namespace MagicTrialGame.Models
 
         private void ProcessRooms(GameData gameData)
         {
-            gameData.Rooms.ForEach(r => r.ProcessRoom(gameData.Player));
+            RoomManager roomManager = new RoomManager();
+            gameData.Rooms.ForEach(r => roomManager.ProcessRoom(r, gameData.Player));
         }
         private void ExecuteFinalBattle(GameData gameData)
         {
