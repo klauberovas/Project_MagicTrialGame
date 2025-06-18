@@ -72,42 +72,44 @@ Program.cs → Game.cs → GameEngine.cs → GameInitializer.cs + GameFlow.cs
 **GameFlow.cs** - Řídí sekvenci herních událostí (uvítání hráče, zpracování místností, finální souboj)
 **GameInitializer.cs** - Zodpovědný za inicializaci herních dat (hádanky, místnosti, nepřítele)                  
 
-1. #### 📊 Models - Datové modely a business logika
+2. #### 📊 Models - Datové modely a business logika
 📂 Data
-**GameData.cs** - Centrální datový kontejner uchovávající celkový stav hry
-**RiddleData.cs** - Datový model pro uchovávání informací o hádankách
-**RoomData.cs** - Datová struktura reprezentující jednotlivé herní místnosti
+- **GameData.cs** - Centrální datový kontejner uchovávající celkový stav hry
+- **RiddleData.cs** - Datový model pro uchovávání informací o hádankách
+- **RoomData.cs** - Datová struktura reprezentující jednotlivé herní místnosti
 
 📂 Entities
-**Entity.cs** - Základní abstraktní třída pro všechny herní entity
-**Player.cs** - Model hráče obsahující jeho statistiky, inventář a stav
-**Enemy.cs** - Model nepřátelských entit s jejich vlastnostmi a chováním
+- **Entity.cs** - Základní abstraktní třída pro všechny herní entity
+- **Player.cs** - Model hráče obsahující jeho statistiky, inventář a stav
+- **Enemy.cs** - Model nepřátelských entit s jejich vlastnostmi a chováním
 
 📂 Items
-**Artifact.cs** - Implementace speciálních artefaktů, které hráč může najít a použít
+- **Artifact.cs** - Implementace speciálních artefaktů, které hráč může najít a použít
 
 📂 Riddles
-**BaseRiddle.cs** - Základní třída pro všechny typy hádanek
-**Riddle.cs** - Konkrétní implementace standardních hádanek
+- **BaseRiddle.cs** - Základní třída pro všechny typy hádanek
+- **Riddle.cs** - Konkrétní implementace standardních hádanek
 
 📂 Enums
-**GameResults.cs** - Výčtové typy definující možné výsledky hry (výhra, prohra, atd.)
+- **GameResults.cs** - Výčtové typy definující možné výsledky hry (výhra, prohra, atd.)
 
-1. #### 🔧 Services - Pomocné služby 
+3. #### 🔧 Services - Pomocné služby 
 📂 Battle
-**BattleEngine.cs** - Hlavní engine řídící bojové mechaniky mezi hráčem a nepřáteli
+- **BattleEngine.cs** - Hlavní engine řídící bojové mechaniky mezi hráčem a nepřáteli
 
 📂 DataLoading
-**RiddleLoader.cs** - Služba zodpovědná za načítání hádanek ze souborů nebo databáze
-**RoomFactory.cs** - Factory třída pro vytváření a konfiguraci herních místností
+- **RiddleLoader.cs** - Služba zodpovědná za načítání hádanek ze souborů nebo databáze
+- **RoomFactory.cs** - Factory třída pro vytváření a konfiguraci herních místností
 
 📂 Room
-**RoomManager.cs** - Správce místností řídící přechody a interakce v jednotlivých lokacích
-**RoomProcessor.cs** - Procesor zpracovávající logiku a události v místnostech
+- **RoomManager.cs** - Správce místností řídící přechody a interakce v jednotlivých lokacích
+- **RoomProcessor.cs** - Procesor zpracovávající logiku a události v místnostech
 
 📂 Validation
-**PlayerValidator.cs** - Validační služba ověřující vstupní data od hráče
-**ValidationResult.cs** - Třída reprezentující výsledky validačních operací
+- **PlayerValidator.cs** - Validační služba ověřující vstupní data od hráče
+- **ValidationResult.cs** - Třída reprezentující výsledky validačních operací
 
 4. #### 🎨 UI - Uživatelské rozhraní
-**GameUI.cs** - Uživatelské rozhraní zodpovědné za zobrazování textu, menu a interakci s hráčem
+- **GameUI.cs** - Uživatelské rozhraní zodpovědné za zobrazování textu, menu a interakci s hráčem
+
+---
