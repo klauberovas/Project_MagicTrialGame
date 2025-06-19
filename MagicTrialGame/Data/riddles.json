@@ -1,0 +1,82 @@
+[
+    {
+        "Id": 1,
+        "RoomNumber": 1,
+        "RoomName": "Komnata Živlů",
+        "Question": "Narodil jsem se v ohni, ale voda je mou smrtí. Žiji ve vzduchu, ale země mě pohltí. Tančím bez nohou a zpívám bez hlasu. Co jsem?",
+        "Answer": "A",
+        "Options": [
+            "A) plamen",
+            "B) vítr",
+            "C) kouř",
+            "D) pára"
+        ],
+        "Artifact": "Rubínový amulet",
+        "MagicPower": 2,
+        "Hint": "Osvětluji tmu, ale bojím se děště..."
+    },
+    {
+        "Id": 2,
+        "RoomNumber": 2,
+        "RoomName": "Komnata Iluzí",
+        "Question": "Vidíš mě každý den, ale nikdy mě nemůžeš chytit. Jsem věrný společník, ale nikdy nepromluvím. Následuji tě všude, ale v temnotě zmizím. Co jsem?",
+        "Answer": "D",
+        "Options": [
+            "A) echo",
+            "B) vzpomínka",
+            "C) odraz",
+            "D) stín"
+        ],
+        "Artifact": "Plášť stínů",
+        "MagicPower": 3,
+        "Hint": "Jsem tmavší než ty, ale bez tebe neexistuji..."
+    },
+    {
+        "Id": 3,
+        "RoomNumber": 3,
+        "RoomName": "Komnata Moudrosti",
+        "Question": "Jsem neviditelný, ale všude přítomný. Beze mě nemůžeš myslet, ale nikdy mě neuvidíš. Jsem rychlejší než světlo, ale pomalejší než myšlenka. Co jsem?",
+        "Answer": "B",
+        "Options": [
+            "A) vzduch",
+            "B) čas",
+            "C) mysl",
+            "D) světlo"
+        ],
+        "Artifact": "Přesýpací hodiny věčnosti",
+        "MagicPower": 3,
+        "Hint": "Plyne stále dopředu a nikdy se nevrací..."
+    },
+    {
+        "Id": 4,
+        "RoomNumber": 4,
+        "RoomName": "Komnata Paměti",
+        "Question": "Nevidíš mě, a přesto vedu tvé kroky. Čím více mě máš, tím mocnější jsi. Když se o mě podělíš, nemizím — rostu. Co jsem?",
+        "Answer": "C",
+        "Options": [
+            "A) kouzelná moc",
+            "B) poklad",
+            "C) vědomosti",
+            "D) tajemství"
+        ],
+        "Artifact": "Kniha všech tajemstvích",
+        "MagicPower": 4,
+        "Hint": "Jsem mocnější než meč, ale křehčí než pergamen..."
+    },
+    {
+        "Id": 5,
+        "RoomNumber": 5,
+        "RoomName": "Komnata Osudu",
+        "Question": "Čím více se snažíš mě uchopit, tím více mi unikáš. Vidíš mě v zrcadle, ale nikdy se mě nedotkneš. Jsem tvůj věrný průvodce životem, ale nikdy tě neposlechnu. Měním se s každým tvým rozhodnutím. Co jsem?",
+        "Answer": "B",
+        "Options": [
+            "A) štěstí",
+            "B) budoucnost",
+            "C) sen",
+            "D) naděje"
+        ],
+        "Artifact": "Koule předpovědi",
+        "MagicPower": 5,
+        "Hint": "Vždy je přede mnou, ale nikdy ji nedostihnu..."
+    }
+]
