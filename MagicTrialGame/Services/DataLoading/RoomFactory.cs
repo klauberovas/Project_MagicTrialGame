@@ -6,13 +6,7 @@ namespace MagicTrialGame.Models
     {
         public List<RoomData> CreateRooms(List<RiddleData> riddleDataList)
         {
-            var rooms = new List<RoomData>();
-
-            foreach (var riddleData in riddleDataList)
-            {
-                RoomData room = new RoomData(riddleData);
-                rooms.Add(room);
-            }
+            var rooms = riddleDataList.Select(riddleData => new RoomData(riddleData)).ToList();
 
             rooms.Sort((x, y) => x.Number.CompareTo(y.Number));
             return rooms;
