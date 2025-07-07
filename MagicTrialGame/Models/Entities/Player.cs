@@ -3,6 +3,7 @@ namespace MagicTrialGame.Models
     public class Player(string name) : Entity(name, 0)
     {
         private string _name;
+        public const int MAX_ARTIFACT_COUNT = 5;
         public override string Name
         {
             get => _name;
@@ -15,7 +16,7 @@ namespace MagicTrialGame.Models
             }
         }
         public List<Artifact> Artifacts { get; set; } = new List<Artifact>();
-        public bool HasAnyArtifact => Artifacts.Count > 0;
-        public bool HasAllArtifacts => Artifacts.Count == 5;
+        public bool HasAnyArtifact => Artifacts != null && Artifacts.Count > 0;
+        public bool HasAllArtifacts => Artifacts != null && Artifacts.Count == MAX_ARTIFACT_COUNT;
     }
 }
