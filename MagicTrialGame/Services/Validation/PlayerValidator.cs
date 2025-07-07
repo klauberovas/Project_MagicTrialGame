@@ -4,22 +4,7 @@ namespace MagicTrialGame.Models
 {
     public class PlayerValidator
     {
-        public Player CreateValidatePlayer()
-        {
-            while (true)
-            {
-                string input = Console.ReadLine()?.Trim();
-
-                var validationResult = ValidateName(input);
-                if (validationResult.IsValid)
-                {
-                    return new Player(input);
-                }
-
-                GameUI.DisplayValidationError(validationResult.ErrorMessage);
-            }
-        }
-        private ValidationResult ValidateName(string name)
+        public ValidationResult ValidateName(string name)
         {
             if (string.IsNullOrWhiteSpace(name))
             {

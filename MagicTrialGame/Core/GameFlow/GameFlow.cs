@@ -28,7 +28,7 @@ namespace MagicTrialGame.Models
         }
         private void InitializePlayer(GameData gameData)
         {
-            var validatedPlayer = playerValidator.CreateValidatePlayer();
+            var validatedPlayer = GameUI.CreateValidatedPlayer();
 
             gameData.UpdatePlayer(validatedPlayer);
         }

@@ -69,6 +69,24 @@ namespace MagicTrialGame.UI
 
         }
 
+        public static Player CreateValidatedPlayer()
+        {
+            var validator = new PlayerValidator();
+
+            while (true)
+            {
+                string input = Console.ReadLine()?.Trim();
+
+                var validationResult = validator.ValidateName(input);
+                if (validationResult.IsValid)
+                {
+                    return new Player(input);
+                }
+
+                DisplayValidationError(validationResult.ErrorMessage);
+            }
+        }
+
         public static void DisplayValidationError(string errorMessage)
         {
             Console.ForegroundColor = ConsoleColor.Red;
