@@ -89,13 +89,12 @@ Program.cs → Game.cs → GameEngine.cs → GameInitializer.cs + GameFlow.cs
 - **Artifact.cs** - Implementace speciálních artefaktů, které hráč může najít a použít
 
 📂 Riddles
-- **BaseRiddle.cs** - Základní třída pro všechny typy hádanek
-- **Riddle.cs** - Konkrétní implementace standardních hádanek
+- **Riddle.cs** - Implementace standardních hádanek
 
 📂 Enums
 - **GameResults.cs** - Výčtové typy definující možné výsledky hry (výhra, prohra, atd.)
 
-3. #### 🔧 Services - Pomocné služby 
+1. #### 🔧 Services - Pomocné služby 
 📂 Battle
 - **BattleEngine.cs** - Hlavní engine řídící bojové mechaniky mezi hráčem a nepřáteli
 
